@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Booky", "Booky\Booky.csproj", "{2699F5AF-E639-4422-BB3D-547437CFF34E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookyApi", "Booky\BookyApi.csproj", "{2699F5AF-E639-4422-BB3D-547437CFF34E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
