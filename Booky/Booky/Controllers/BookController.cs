@@ -64,9 +64,10 @@ namespace Booky.Controllers
             return Ok();
         }
 
-        [HttpDelete]
-        public ActionResult Delete()
+        [HttpDelete("{bookGuid}")]
+        public ActionResult Delete(Guid bookGuid)
         {
+            _bookService.Delete(bookGuid);
             return Ok();
         }
     }

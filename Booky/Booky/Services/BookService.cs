@@ -34,5 +34,10 @@ namespace BookyApi.Services
         {
             _bookRepo.Edit(book);
         }
+
+        public void Delete(Guid bookGuid)
+        {
+            _bookRepo.Delete(bookGuid);
+        }
     }
 }

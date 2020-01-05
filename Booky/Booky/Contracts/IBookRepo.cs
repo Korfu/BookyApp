@@ -10,6 +10,6 @@ namespace BookyApi.Contracts
         Book Get(Guid bookGuid);
         Guid Add(Book book);
         void Edit(Book book);
-
+        void Delete(Guid bookGuid);
     }
 }

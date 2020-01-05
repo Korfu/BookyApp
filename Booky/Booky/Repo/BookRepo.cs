@@ -90,5 +90,18 @@ namespace BookyApi.Repo
 
             sqlConnection.Execute(command.CommandText, command.ToDynamicParameters());
         }
+
+        public void Delete(Guid bookGuid)
+        {
+            using var sqlConnection = new SqlConnection(_builder.ConnectionString);
+            var command = new SqlCommand(@"
+                    DELETE FROM Books
+                    WHERE Id = @Guid
+                    ");
+
+            command.Parameters.AddWithValue("Guid", bookGuid);
+
+            sqlConnection.Execute(command.CommandText, command.ToDynamicParameters());
+        }
     }
 }
