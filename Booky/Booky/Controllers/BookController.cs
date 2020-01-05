@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BookyApi.Contracts;
+using BookyApi.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -24,17 +26,19 @@ namespace Booky.Controllers
         };
 
         private readonly ILogger<BookController> _logger;
+        private readonly IBookService _bookService;
 
-        public BookController(ILogger<BookController> logger)
+        public BookController(ILogger<BookController> logger, IBookService bookService)
         {
             _logger = logger;
+            _bookService = bookService;
         }
 
         [HttpGet]
         [Route("GetAll")]
         public ActionResult<IEnumerable<Book>> GetAll()
         {
-            var books = new List<Book>{_book};
+            var books = _bookService.GetAll();
 
             return Ok(books);
         }
