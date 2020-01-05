@@ -43,17 +43,18 @@ namespace Booky.Controllers
             return Ok(books);
         }
 
-        [HttpGet]
-        public ActionResult<Book> Get()
+        [HttpGet("{bookGuid}")]
+        public ActionResult<Book> Get(Guid bookGuid)
         {
-            var book = _book;
+            var book = _bookService.Get(bookGuid);
             return Ok(book);
         }
 
         [HttpPost]
-        public ActionResult Add()
+        public ActionResult Add(Book book)
         {
-            return Ok();
+            var bookGuid = _bookService.Add(book);
+            return Ok(bookGuid);
         }
 
         [HttpPut]

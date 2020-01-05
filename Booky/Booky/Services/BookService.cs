@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Booky;
 using BookyApi.Contracts;
 using BookyApi.Repo;
@@ -17,6 +18,16 @@ namespace BookyApi.Services
         public IEnumerable<Book> GetAll()
         {
             return _bookRepo.GetAll();
+        }
+
+        public Book Get(Guid bookGuid)
+        {
+            return _bookRepo.Get(bookGuid);
+        }
+
+        public Guid Add(Book book)
+        {
+            return _bookRepo.Add(book);
         }
     }
 }
