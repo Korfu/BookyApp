@@ -9,5 +9,6 @@ namespace BookyApi.Contracts
         IEnumerable<Book> GetAll();
         Book Get(Guid bookGuid);
         Guid Add(Book book);
+        void Edit(Book book);
     }
 }

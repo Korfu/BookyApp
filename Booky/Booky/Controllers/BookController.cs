@@ -57,9 +57,10 @@ namespace Booky.Controllers
             return Ok(bookGuid);
         }
 
-        [HttpPut]
-        public ActionResult Edit()
+        [HttpPut("{bookGuid}")]
+        public ActionResult Edit(Book book)
         {
+            _bookService.Edit(book);
             return Ok();
         }
 

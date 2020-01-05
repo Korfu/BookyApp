@@ -29,5 +29,10 @@ namespace BookyApi.Services
         {
             return _bookRepo.Add(book);
         }
+
+        public void Edit(Book book)
+        {
+            _bookRepo.Edit(book);
+        }
     }
 }

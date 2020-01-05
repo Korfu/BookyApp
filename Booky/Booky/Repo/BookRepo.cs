@@ -67,5 +67,28 @@ namespace BookyApi.Repo
 
             return sqlConnection.QuerySingle<Guid>(command.CommandText, command.ToDynamicParameters());
         }
+
+        public void Edit(Book book)
+        {
+            using var sqlConnection = new SqlConnection(_builder.ConnectionString);
+            var command = new SqlCommand(@"
+                    UPDATE Books
+                    SET Title = @Title, 
+                        Author = @Author, 
+                        IsbnCode = @IsbnCode, 
+                        PublishedDate = @PublishedDate,
+                        Summary = @Summary
+                    WHERE Id = @Guid
+                    ");
+
+            command.Parameters.AddWithValue("Guid", book.Guid);
+            command.Parameters.AddWithValue("Title", book.Title);
+            command.Parameters.AddWithValue("Author", book.Author);
+            command.Parameters.AddWithValue("IsbnCode", book.IsbnCode);
+            command.Parameters.AddWithValue("PublishedDate", book.PublishedDate);
+            command.Parameters.AddWithValue("Summary", book.Summary);
+
+            sqlConnection.Execute(command.CommandText, command.ToDynamicParameters());
+        }
     }
 }
